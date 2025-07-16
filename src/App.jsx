@@ -3,7 +3,7 @@ import Grid from "./components/Grid/Grid";
 
 const App = () => {
   return (
-    <div className="flex flex-col mt-20 justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full min-h-screen bg-gradient-to-br from-gray-800 to-gray-900">
       <div className=" w-full sm:w-[50%]  ">
         <Grid numberOfCard={9} />
       </div>

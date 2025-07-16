@@ -59,31 +59,48 @@ const Grid = ({ numberOfCard }) => {
   }
 
   return (
-    <div>
-      <h1 className="text-white font-semibold text-4xl w-full mb-20">
-        Current Turn : <span className="p-2 ">{isXNext ? "X" : "O"}</span>
-      </h1>
-      <div className=" grid grid-cols-3 gap-2 mb-10">
-        {board.map((value, index) => {
-          return <Card onPlay={play} icon={value} index={index} key={index} />;
-        })}
+    <div className="flex flex-col p-4">
+      <h1 className="text-white font-bold text-5xl mb-8">Tic Tac Toe</h1>
+  
+      <div className="text-white font-semibold text-2xl mb-6">
+        Current Turn {" "}
+        <span
+          className={`px-4 py-1 rounded-md font-bold ${
+            isXNext ? "bg-red-500 text-white" : "bg-blue-500 text-white"
+          }`}
+        >
+          {isXNext ? "X" : "O"}
+        </span>
       </div>
-      {winner ? (
-        <h1 className="text-white font-semibold text-2xl w-full mb-10">
-          Winner is : {winner}
-        </h1>
-      ) : (
-        ""
+  
+      <div className="grid grid-cols-3 grid-rows-3 gap-4">
+        {board.map((value, index) => (
+          <Card
+            onPlay={play}
+            icon={value}
+            index={index}
+            key={index}
+          />
+        ))}
+      </div>
+  
+      {winner && (
+        <div className="mt-10 text-white text-3xl font-semibold bg-green-600 px-6 py-3 rounded-md shadow-lg">
+          Winner {winner === "cross" ? "X" : "O"}
+        </div>
       )}
-      {winner ? (
-        <button onClick={resetGame} className="bg-blue-400 px-4 py-2 text-2xl">
-          Reset
+  
+      {winner && (
+        <button
+          onClick={resetGame}
+          className="mt-6 bg-white text-gray-800 px-6 py-2 rounded-md text-lg font-semibold shadow-md hover:bg-gray-200 transition"
+        >
+          🔄 Reset Game
         </button>
-      ) : (
-        ""
       )}
     </div>
   );
+  
 };
 
 export default Grid;
