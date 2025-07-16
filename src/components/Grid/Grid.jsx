@@ -59,7 +59,7 @@ const Grid = ({ numberOfCard }) => {
   }
 
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex flex-col  text-center flex-nowrap p-4">
       <h1 className="text-white font-bold text-5xl mb-8">Tic Tac Toe</h1>
   
       <div className="text-white font-semibold text-2xl mb-6">
